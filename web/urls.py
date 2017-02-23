@@ -34,3 +34,11 @@ urlpatterns = [
     url(r'^office/', views.office, name='office'),
     url(r'^customer_center/', views.customer_center, name='customer_center'),
 ]
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.STATIC_URL, document_root=settings.STATIC_ROOT
+    )
